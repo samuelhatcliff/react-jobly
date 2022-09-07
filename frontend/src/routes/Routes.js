@@ -1,12 +1,12 @@
 import { Route, Routes } from 'react-router-dom';
 import React, { useState } from 'react';
-import Company from './Company.js';
-import Job from './Job.js';
-import Profile from './Profile.js';
+import Company from '.company/Company.js';
+import Job from '.job/Job.js';
+import Profile from '..profiles/Profile.js';
 import SignIn from './SignIn.js';
 import SignUp from './SignUp.js';
-import HomePage from './HomePage.js';
-import CompanyDetail from './CompanyDetail.js'
+import HomePage from '.homepage/HomePage.js';
+import CompanyDetail from '.company/company-detail/CompanyDetail.js'
 
 function RoutesComp({ data }) {
     const [signedIn, setSignedIn] = useState(true);

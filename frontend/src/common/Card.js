@@ -1,4 +1,4 @@
-import CompanyCard from "./CompanyCard";
+import CompanyCard from "./companies/company-detail/company-card/CompanyCard";
 import JobCard from "./JobCard";
 import { Card as MuiCard } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';

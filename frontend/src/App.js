@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import NavBar from './NavBar.js';
-import RoutesComp from './Routes.js'
+import NavBar from './navbar/NavBar.js';
+import RoutesComp from './routes/Routes.js'
 
 
 function App() {

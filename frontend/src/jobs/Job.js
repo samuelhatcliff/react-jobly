@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import JobDetail from './JobDetail';
+import JobDetail from '../JobDetail';
 import { Outlet } from 'react-router-dom';
-import SearchModule from './SearchModule';
+import SearchModule from '../common/SearchModule';
 
 const Job = () => {
     const [search, setSearch] = useState(null);
