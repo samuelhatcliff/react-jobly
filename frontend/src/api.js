@@ -47,6 +47,7 @@ class JoblyApi {
       const res = await this.request(`companies?name=${name}`)
       return res.companies
     }
+    console.log("oops")
     const res = await this.request(`companies/`)
     return res.companies;
   }

@@ -5,7 +5,6 @@ const List = ({ data: data, type: type }) => {
             <div><Card type={type} data={comp} key={data.indexOf(comp)} />
                 <p></p>
             </div>
-
         )
     })
     return (
