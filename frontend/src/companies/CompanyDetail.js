@@ -18,19 +18,18 @@ const CompanyDetail = ({ search }) => {
         fetchData();
     }, [search]);
 
-    if (!data) {
+    if (!data && !search) {
         return (
-            <>
-                <Loading />
-            </>
-        )
+            <div>
+                <h1>Companies!</h1>
+            </div>)
     }
-
-    return (
-        <div>
-            <h1>Company Detail!</h1>
-            <List data={data} type="company" />
-        </div>
-    )
+    else {//search query hasn't been submitted
+        return (
+            <div>
+                <h1>Companies!</h1>
+                <List data={data} type="company" />
+            </div>)
+    }
 }
 export default CompanyDetail

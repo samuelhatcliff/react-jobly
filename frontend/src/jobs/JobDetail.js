@@ -18,21 +18,18 @@ const JobDetail = ({ search }) => {
         fetchData();
     }, [search]);
 
-    if (!data) {
+    if (!data && !search) {
         return (
-            <>
-                <Loading />
-            </>
-        )
-    }
-
-    return (
-        <div>
             <div>
-                <h1>Job Detail!</h1>
+                <h1>Jobs!</h1>
+            </div>)
+    }
+    else {//search query hasn't been submitted
+        return (
+            <div>
+                <h1>Jobs!</h1>
                 <List data={data} type="job" />
-            </div>
-        </div>
-    )
+            </div>)
+    }
 }
 export default JobDetail

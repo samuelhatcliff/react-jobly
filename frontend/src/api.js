@@ -43,8 +43,13 @@ class JoblyApi {
   }
 
   static async getAllCompanies(name = null) {
-    return name ? await this.request(`companies`, { name }).companies :
-      await this.request(`companies/`).companies
+    let res;
+    if (name) {
+      res = await this.request(`companies`, { name })
+    } else {
+      res = await this.request(`companies/`)
+    }
+    return res.companies;
   }
 
   static async getJob(id) {
@@ -53,8 +58,18 @@ class JoblyApi {
   }
 
   static async getAllJobs(title = null) {
-    return title ? await this.request(`jobs`, { title }).jobs :
-      await this.request('jobs').jobs;
+    let res;
+    if (title) {
+      res = await this.request(`jobs`, { title })
+    } else {
+      res = await this.request(`jobs/`);
+    }
+    return res.jobs
+  }
+
+  static async registerUser(data) {
+    const res = await this.request(`auth/register`, data, "post");
+    return res.token;
   }
 }
 

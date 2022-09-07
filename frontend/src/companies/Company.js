@@ -5,6 +5,7 @@ import SearchModule from '../common/SearchModule';
 
 const Company = () => {
     const [search, setSearch] = useState(null);
+    // const [data, setData] = useState(null)
     return (
         <div>
             <h1>Rendering Company Component</h1>
