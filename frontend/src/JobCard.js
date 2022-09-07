@@ -1,3 +1,5 @@
+import Button from '@mui/material/Button';
+
 const JobCard = ({ data: { title, salary, equity, companyHandle } }) => {
 
     return (
@@ -10,7 +12,7 @@ const JobCard = ({ data: { title, salary, equity, companyHandle } }) => {
                 <li>Equity:{equity}
                 </li>
             </ul>
-            <h3>Apply Button</h3>
+            <Button variant="contained">Apply</Button>
         </div>
     )
 }

@@ -1,10 +1,12 @@
+import Button from '@mui/material/Button';
 
-const SearchModule = ({ searchTerm }) => {
+
+const SearchModule = ({ setSearch }) => {
     return (
-        <nav>
+        <div>
             <h1>SearchBar!</h1>
-            <h1>Button!</h1>
-        </nav>
+            <Button variant="contained">Search!</Button>
+        </div>
     )
 }
 export default SearchModule

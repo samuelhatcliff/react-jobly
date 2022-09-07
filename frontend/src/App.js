@@ -1,4 +1,3 @@
-import { Route, Routes } from 'react-router-dom';
 import React, { useState } from 'react';
 import NavBar from './NavBar.js';
 import RoutesComp from './Routes.js'
@@ -12,7 +11,6 @@ function App() {
     <div>
       <NavBar signedIn={signedIn} />
       <RoutesComp />
-
     </div>
   );
 }
