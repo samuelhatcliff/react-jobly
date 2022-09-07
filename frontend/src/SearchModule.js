@@ -13,8 +13,6 @@ const SearchModule = ({ setSearch, type = "company" }) => {
             setSearch(searchState)
         }
     }
-    //write dynamic css property for inputSearchString to display message
-    //
     return (
         <div>
             <ReactSearchAutocomplete

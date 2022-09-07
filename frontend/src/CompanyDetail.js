@@ -5,7 +5,6 @@ import Loading from './Loading';
 
 const CompanyDetail = ({ search }) => {
     const [data, setData] = useState(null)
-
     useEffect(() => {
         async function fetchData() {
             let allCompanies;
@@ -17,7 +16,7 @@ const CompanyDetail = ({ search }) => {
             setData(allCompanies)
         }
         fetchData();
-    }, []);
+    }, [search]);
 
     if (!data) {
         return (

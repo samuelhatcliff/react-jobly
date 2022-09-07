@@ -55,7 +55,6 @@ router.get("/", async function (req, res, next) {
   // arrive as strings from querystring, but we want as int/bool
   if (q.minSalary !== undefined) q.minSalary = +q.minSalary;
   q.hasEquity = q.hasEquity === "true";
-
   try {
     const validator = jsonschema.validate(q, jobSearchSchema);
     if (!validator.valid) {
@@ -104,7 +103,6 @@ router.patch("/:id", ensureAdmin, async function (req, res, next) {
       const errs = validator.errors.map(e => e.stack);
       throw new BadRequestError(errs);
     }
-
     const job = await Job.update(req.params.id, req.body);
     return res.json({ job });
   } catch (err) {
