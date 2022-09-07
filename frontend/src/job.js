@@ -5,7 +5,6 @@ import SearchModule from './SearchModule';
 
 const Job = () => {
     const [search, setSearch] = useState(null);
-    console.log("SEARCH IN JOB COMP")
     return (
         <div>
             <h1>Rendering Job Component</h1>

@@ -7,7 +7,6 @@ const SearchModule = ({ setSearch, type = "company" }) => {
     let searchState;
     const handleOnSearch = (string) => {
         searchState = string;
-        console.log(searchState)
     }
     const sendState = () => {
         if (searchState) {

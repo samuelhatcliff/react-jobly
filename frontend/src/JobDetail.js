@@ -16,7 +16,7 @@ const JobDetail = ({ search }) => {
             setData(allJobs)
         }
         fetchData();
-    }, []);
+    }, [search]);
 
     if (!data) {
         return (
