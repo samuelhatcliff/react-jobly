@@ -1,32 +1,17 @@
-import { useEffect, useState } from 'react';
-import JoblyApi from './api'
-import List from './List';
-import Loading from './Loading';
+import { useState } from 'react';
+import JobDetail from './JobDetail';
+import { Outlet } from 'react-router-dom';
+import SearchModule from './SearchModule';
 
 const Job = () => {
-    const [data, setData] = useState(null)
-    useEffect(() => {
-        async function fetchData() {
-            const allJobs = await JoblyApi.getAllJobs();
-            setData(allJobs)
-        }
-        fetchData();
-    }, []);
-
-    if (!data) {
-        return (
-            <>
-                <Loading />
-            </>
-        )
-    }
+    const [search, setSearch] = useState(null);
 
     return (
         <div>
-            <div>
-                <h1>Job Detail!</h1>
-                <List data={data} type="job" />
-            </div>
+            <h1>Rendering Job Component</h1>
+            <Outlet />
+            <SearchModule setSearch={setSearch} />
+            <JobDetail search={search} />
         </div>
     )
 }

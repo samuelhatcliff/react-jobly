@@ -4,13 +4,13 @@ import CompanyDetail from './CompanyDetail';
 import SearchModule from './SearchModule';
 
 const Company = () => {
-    console.log("RENDERING COMPANY")
+    const [search, setSearch] = useState(null);
     return (
         <div>
             <h1>Rendering Company Component</h1>
             <Outlet />
-            {/* <SearchModule /> */}
-            <CompanyDetail />
+            <SearchModule setSearch={setSearch} />
+            <CompanyDetail search={search} />
         </div>
     )
 }

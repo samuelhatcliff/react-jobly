@@ -3,18 +3,17 @@ import JoblyApi from './api'
 import List from './List';
 import Loading from './Loading';
 
-const CompanyDetail = ({ search }) => {
+const JobDetail = ({ search }) => {
     const [data, setData] = useState(null)
-
     useEffect(() => {
         async function fetchData() {
-            let allCompanies;
+            let allJobs;
             if (search) {
-                allCompanies = await JoblyApi.getAllCompanies(search);
+                allJobs = await JoblyApi.getAllJobs(search);
             } else {
-                allCompanies = await JoblyApi.getAllCompanies();
+                allJobs = await JoblyApi.getAllJobs();
             }
-            setData(allCompanies)
+            setData(allJobs)
         }
         fetchData();
     }, []);
@@ -29,9 +28,11 @@ const CompanyDetail = ({ search }) => {
 
     return (
         <div>
-            <h1>Company Detail!</h1>
-            <List data={data} type="company" />
+            <div>
+                <h1>Job Detail!</h1>
+                <List data={data} type="job" />
+            </div>
         </div>
     )
 }
-export default CompanyDetail
+export default JobDetail

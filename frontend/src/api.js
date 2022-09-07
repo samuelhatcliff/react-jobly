@@ -42,7 +42,11 @@ class JoblyApi {
     return res.company;
   }
 
-  static async getAllCompanies() {
+  static async getAllCompanies(name = null) {
+    if (name) {
+      const res = await this.request(`companies?name=${name}`)
+      return res.companies
+    }
     const res = await this.request(`companies/`)
     return res.companies;
   }
@@ -52,7 +56,11 @@ class JoblyApi {
     return res.job
   }
 
-  static async getAllJobs() {
+  static async getAllJobs(name = null) {
+    if (name) {
+      const res = await this.request(`jobs?name=${name}`)
+      return res.companies
+    }
     const res = await this.request(`jobs/`);
     return res.jobs
   }
