@@ -6,12 +6,10 @@ const JobCard = ({ data: { title, salary, equity, companyHandle } }) => {
         <div>
             <h1>{title}</h1>
             <h2>{companyHandle}</h2>
-            <ul>
-                <li>Salary:{salary}
-                </li>
-                <li>Equity:{equity}
-                </li>
-            </ul>
+            <li>Salary:{salary}
+            </li>
+            <li>Equity:{equity}
+            </li>
             <Button variant="contained">Apply</Button>
         </div>
     )

@@ -1,11 +1,30 @@
 import Button from '@mui/material/Button';
+import { ReactSearchAutocomplete } from 'react-search-autocomplete'
+import { useState } from 'react';
 
 
-const SearchModule = ({ setSearch }) => {
+const SearchModule = ({ setSearch, type = "company" }) => {
+    let searchState;
+    const handleOnSearch = (string) => {
+        searchState = string;
+        console.log(searchState)
+    }
+    const sendState = () => {
+        if (searchState) {
+            setSearch(searchState)
+        }
+    }
+    //write dynamic css property for inputSearchString to display message
+    //
     return (
         <div>
-            <h1>SearchBar!</h1>
-            <Button variant="contained">Search!</Button>
+            <ReactSearchAutocomplete
+                onSearch={handleOnSearch}
+                showNoResults={false}
+                autoFocus={true}
+                placeholder='Enter search term..'
+            />
+            <Button variant="contained" onClick={sendState}>Search!</Button>
         </div>
     )
 }

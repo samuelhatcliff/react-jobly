@@ -1,0 +1,11 @@
+.card {
+    box-shadow: 10px;
+    border-radius: 20px;
+    background-color: blueviolet;
+}
+
+.card:hover {
+    box-shadow: 100px;
+    background-color: #F3F3F3;
+}
+
