@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import JobDetail from '../JobDetail';
+import JobDetail from './JobDetail';
 import { Outlet } from 'react-router-dom';
 import SearchModule from '../common/SearchModule';
 

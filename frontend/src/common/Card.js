@@ -1,8 +1,8 @@
-import CompanyCard from "./companies/company-detail/company-card/CompanyCard";
-import JobCard from "./JobCard";
+import CompanyCard from "../companies/CompanyCard";
+import JobCard from "../jobs/JobCard";
 import { Card as MuiCard } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import './Card.css'
+import '../common/Card.css'
 
 const theme = createTheme({
     palette: {

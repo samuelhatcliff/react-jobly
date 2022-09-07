@@ -1,5 +1,5 @@
 
-import './Card.css'
+import '../common/Card.css'
 const CompanyCard = ({ data: { name, description, logoUrl } }) => {
     return (
         <div>
