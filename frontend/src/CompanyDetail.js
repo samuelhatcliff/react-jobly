@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import JoblyApi from './api'
-import CompanyList from './CompanyList';
+import List from './List';
 import Loading from './Loading';
 
 const CompanyDetail = () => {
@@ -25,7 +25,7 @@ const CompanyDetail = () => {
     return (
         <div>
             <h1>Company Detail!</h1>
-            <CompanyList data={data} />
+            <List data={data} type="company" />
         </div>
     )
 }

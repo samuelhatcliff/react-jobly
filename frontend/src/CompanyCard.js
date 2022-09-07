@@ -1,8 +1,13 @@
 
-const CompanyCard = () => {
-
+const CompanyCard = ({ data: { name, description, logoUrl } }) => {
     return (
-        <><h1>Company Card</h1></>
+        <>
+            <div>
+                <h1>{name}</h1>
+                <h3>{description}</h3>
+                <img src={logoUrl}></img>
+            </div>
+        </>
     )
 }
 

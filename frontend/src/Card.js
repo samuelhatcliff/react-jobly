@@ -1,19 +1,17 @@
 import CompanyCard from "./CompanyCard";
 import JobCard from "./JobCard";
-const Card = ({ type }) => {
+const Card = ({ type, data }) => {
     if (type === "company") {
         return (
             <div>
-                <h3>Card</h3>
-                <CompanyCard />
+                <CompanyCard data={data} />
             </div>
         )
     }
     if (type === "job") {
         return (
             <div>
-                <h3>Card</h3>
-                <JobCard />
+                <JobCard data={data} />
             </div>
         )
     }
