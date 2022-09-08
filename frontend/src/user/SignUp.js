@@ -1,7 +1,11 @@
 import { useState } from "react";
 import JoblyApi from "../api";
+import { useNavigate } from 'react-router-dom';
 
-const SignUp = ({ addUser }) => {
+
+const SignUp = ({ setUser }) => {
+    const navigate = useNavigate();
+    const [success, setSuccess] = useState(false)
 
     const initialState = {
         username: "",
@@ -18,15 +22,23 @@ const SignUp = ({ addUser }) => {
             ...data,
             [name]: value
         }))
-        // console.log(formData)
     }
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(formData)
-        const token = JoblyApi.registerUser(formData)
-        // addUser(formData);
+        const token = await JoblyApi.registerUser(formData)
+        JoblyApi.token = token;
+        setUser([formData.username, token]);
+        setSuccess(true);
         setFormData(initialState);
+        console.log(formData, token)
+        navigate('/')
+    }
+    if (success) {
+        return (
+            <>
+                <h1>Success!</h1>
+            </>
+        )
     }
 
     return (

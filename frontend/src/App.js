@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import NavBar from './navbar/NavBar.js';
 import RoutesComp from './routes/Routes.js'
-import UserAuthData from './user/UserAuthData.js';
+import UserContext from './user/UserContext.js';
 
 function App() {
   const [signedIn, setSignedIn] = useState(false);
-  const company = "c"
+  const [user, setUser] = useState([]);
+  console.log("USER IN APP", user)
 
   return (
     <div>
-      <NavBar signedIn={signedIn} />
-      <RoutesComp />
-      {/* <UserAuthData /> */}
+      <UserContext.Provider value={user}>
+        <NavBar signedIn={signedIn} />
+        <RoutesComp setUser={setUser} />
+      </UserContext.Provider>
     </div>
   );
 }

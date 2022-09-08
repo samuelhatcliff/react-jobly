@@ -1,8 +1,11 @@
 import { useState } from "react";
 import JoblyApi from "../api";
+import { useNavigate } from 'react-router-dom';
 
-const SignIn = ({ loginUser }) => {
-
+const SignIn = ({ setUser }) => {
+    const navigate = useNavigate();
+    //(Later, once you start working on the login form, you may find it
+    // useful to log in as “testuser”. Their password is “password”).
     const initialState = {
         username: "",
         password: "",
@@ -17,10 +20,12 @@ const SignIn = ({ loginUser }) => {
         }))
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const token = JoblyApi.loginUser(formData)
-        // addUser(formData);
+        const token = await JoblyApi.loginUser(formData);
+        JoblyApi.token = token;
+        setUser([formData.username, token]);
+        navigate('/');
         setFormData(initialState);
     }
 
