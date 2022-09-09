@@ -77,8 +77,9 @@ class JoblyApi {
     return res.token;
   }
 
-  static async updateUser(data) {
-    const username = data.username;
+  static async updateUser(data, username) {
+    // const username = data.username;
+    console.log(data, 'ddaaaataaa')
     const res = await this.request(`users/${username}`, data, "patch")
     return res;
   }

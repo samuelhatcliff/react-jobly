@@ -5,10 +5,9 @@ import UserContext from '../user/UserContext.js';
 
 
 
-const Profile = ({ setUser }) => {
+const Profile = () => {
     const navigate = useNavigate();
     const username = useContext(UserContext)[0];
-
 
     const initialState = {
         password: "",
@@ -27,17 +26,9 @@ const Profile = ({ setUser }) => {
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
-        formData['username'] = username;
-        const res = await JoblyApi.updateUser(formData)
-        console.log(res)
+        const res = await JoblyApi.updateUser(formData, username)
+        console.log(res, "UPDATE RES")
         navigate('/')
-    }
-    if (success) {
-        return (
-            <>
-                <h1>Success!</h1>
-            </>
-        )
     }
 
     return (
