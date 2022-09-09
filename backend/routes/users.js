@@ -127,7 +127,8 @@ router.delete("/:username", ensureCorrectUserOrAdmin, async function (req, res, 
  * Authorization required: admin or same-user-as-:username
  * */
 
-router.post("/:username/jobs/:id", ensureCorrectUserOrAdmin, async function (req, res, next) {
+router.post("/:username/jobs/:id", async function (req, res, next) {
+  console.log("#####")
   try {
     const jobId = +req.params.id;
     await User.applyToJob(req.params.username, jobId);
