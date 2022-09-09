@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import UserContext from '../user/UserContext.js';
 
 
-const NavBar = ({ signedIn }) => {
+const NavBar = () => {
     const username = useContext(UserContext)[0];
 
     return (
