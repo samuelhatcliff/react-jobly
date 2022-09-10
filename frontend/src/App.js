@@ -18,11 +18,12 @@ function App() {
     async function getUser() {
       if (token) {
         try {
+          JoblyApi.token = token;
           const username = await JoblyApi.decodeToken(token)
           JoblyApi.token = token;
           const user = await JoblyApi.getUser(username);
           const apps = user.user.applications;
-          setUser(username, token, apps);
+          setUser([username, token, apps]);
         } catch (err) {
           console.error("App loadUserInfo: problem loading", err);
           setUser(null);

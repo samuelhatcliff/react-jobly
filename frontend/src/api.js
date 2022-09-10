@@ -93,8 +93,9 @@ class JoblyApi {
   }
 
   static async decodeToken(data) {
-    console.log(data, "token data in api")
-    const res = await this.request(`auth/decode`, data, "post")
+    const dataObj = { "data": data }
+    console.log(dataObj)
+    const res = await this.request("auth/decode", data, "post");
     return res;
   }
 }
