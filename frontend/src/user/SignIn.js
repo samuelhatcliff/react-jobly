@@ -1,11 +1,11 @@
-import { useState } from "react";
-import JoblyApi from "../api";
+import { useState, useContext } from "react";
 import { useNavigate } from 'react-router-dom';
+import UserContext from "./UserContext";
 
 const SignIn = ({ setUser }) => {
     const navigate = useNavigate();
-    //(Later, once you start working on the login form, you may find it
-    // useful to log in as “testuser”. Their password is “password”).
+    const { login } = useContext(UserContext);
+
     const initialState = {
         username: "",
         password: "",
@@ -22,9 +22,7 @@ const SignIn = ({ setUser }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const token = await JoblyApi.loginUser(formData);
-        JoblyApi.token = token;
-        setUser([formData.username, token]);
+        await login(formData);
         navigate('/');
         setFormData(initialState);
     }

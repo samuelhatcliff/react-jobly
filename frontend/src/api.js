@@ -86,6 +86,17 @@ class JoblyApi {
     const res = await this.request(`users/${username}/jobs/${jobId}`, {}, "post");
     return res;
   }
+
+  static async getUser(username) {
+    const res = await this.request(`users/${username}`)
+    return res
+  }
+
+  static async decodeToken(data) {
+    console.log(data, "token data in api")
+    const res = await this.request(`auth/decode`, data, "post")
+    return res;
+  }
 }
 
 // for now, put token ("testuser" / "password" on class)

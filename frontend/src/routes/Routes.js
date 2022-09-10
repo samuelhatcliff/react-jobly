@@ -10,8 +10,7 @@ import HomePage from '../HomePage.js';
 import CompanyDetail from '../companies/CompanyDetail.js';
 
 
-function RoutesComp({ setUser }) {
-    const [signedIn, setSignedIn] = useState(true);
+function RoutesComp() {
     const company = "c"
     return (
         <div>
@@ -26,11 +25,11 @@ function RoutesComp({ setUser }) {
                 </Route>
                 <Route path="/profile" element={<Profile />}>
                 </Route>
-                <Route path="/logout" element={<Logout setUser={setUser} />}>
+                <Route path="/logout" element={<Logout />}>
                 </Route>
-                <Route path="/signup" element={<SignUp setUser={setUser} />}>
+                <Route path="/signup" element={<SignUp />}>
                 </Route>
-                <Route path="/signin" element={<SignIn setUser={setUser} />}>
+                <Route path="/signin" element={<SignIn />}>
                 </Route>
             </Routes>
         </div>

@@ -4,17 +4,27 @@ import UserContext from '../user/UserContext.js';
 import JoblyApi from '../api.js';
 
 const JobCard = ({ data: { id, title, salary, equity, companyHandle } }) => {
-    const username = useContext(UserContext)[0];
-    const [applied, setApplied] = useState(false)
+    const { user } = useContext(UserContext);
+    const username = user[0]
+    const apps = user[2]
+    let apply; //checking via the apply variable before setting 'applied' state prevents infinite re-renders
+    if (apps.includes(id)) {
+        apply = true
+    } else {
+        apply = false;
+    }
+    const [applied, setApplied] = useState(apply);
 
-    async function apply() {
+    //todo: get user applications
+    //make an array/object and check if inside 
+    //if inside, set applied to true
+    async function applyToJob() {
         await JoblyApi.apply(id, username);
         setApplied(true);
     }
-    //write useEffect that uses JoblyApi.apply() when button is clicked
-    //get jobid from data
+
     return (
-        <div>=
+        <div>
             <h1>{title}</h1>
             <h2>{companyHandle}</h2>
             <li>Salary:{salary}
@@ -22,9 +32,8 @@ const JobCard = ({ data: { id, title, salary, equity, companyHandle } }) => {
             <li>Equity:{equity}
             </li>
             {applied ? (<Button disabled={true} variant="contained">Apply</Button>
-            ) : (<Button onClick={apply} variant="contained">Apply</Button>
-            )
-            }
+            ) : (<Button onClick={applyToJob} variant="contained">Apply</Button>
+            )}
         </div>
     )
 }

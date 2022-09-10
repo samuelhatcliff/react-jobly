@@ -7,7 +7,7 @@ const jsonschema = require("jsonschema");
 const User = require("../models/user");
 const express = require("express");
 const router = new express.Router();
-const { createToken } = require("../helpers/tokens");
+const { createToken, decodeToken } = require("../helpers/tokens");
 const userAuthSchema = require("../schemas/userAuth.json");
 const userRegisterSchema = require("../schemas/userRegister.json");
 const { BadRequestError } = require("../expressError");
@@ -35,6 +35,20 @@ router.post("/token", async function (req, res, next) {
     return next(err);
   }
 });
+
+router.post("/decode", async function (req, res, next) {
+  console.log("@@@", req.body)
+  const { token } = req.body;
+  console.log(token, "ASDFASDFASDFASDFA")
+  try {
+    const username = decodeToken(token);
+    return res.json(username);
+  } catch (err) {
+    return next(err);
+  }
+});
+
+
 
 
 /** POST /auth/register:   { user } => { token }

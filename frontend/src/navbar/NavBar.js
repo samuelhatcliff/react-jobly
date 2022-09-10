@@ -4,16 +4,21 @@ import UserContext from '../user/UserContext.js';
 
 
 const NavBar = () => {
-    const username = useContext(UserContext)[0];
-
+    const { user } = useContext(UserContext);
+    let loggedIn = false;
+    if (user) {
+        if (user.length) {
+            loggedIn = true;
+        }
+    }
     return (
         <nav>
-            {username ? (
+            {loggedIn ? (
                 <>
                     <NavLink exact to="/companies">Companies</NavLink>
                     <NavLink exact to="/jobs">Jobs</NavLink>
                     <NavLink exact to="/profile">Profile</NavLink>
-                    <NavLink exact to="/logout">Log Out {username}</NavLink>
+                    <NavLink exact to="/logout">Log Out {user[0]}</NavLink>
                 </>
             ) : (
                 <>
