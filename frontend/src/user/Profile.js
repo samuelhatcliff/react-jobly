@@ -1,23 +1,28 @@
 import { useState, useContext } from "react";
-import JoblyApi from "../api";
 import { useNavigate } from 'react-router-dom';
 import UserContext from '../user/UserContext.js';
+import NotAuthorized from "../routes/NotAuthorized.js";
 
 
 
 const Profile = () => {
-    const navigate = useNavigate();
-    const { user } = useContext(UserContext)
-    const { updateUser } = useContext(UserContext);
-    const username = user[0];
-
     const initialState = {
         password: "",
         firstName: "",
         lastName: "",
         email: ""
     }
+    const navigate = useNavigate();
+    const { user } = useContext(UserContext)
+    const { updateUser } = useContext(UserContext);
     const [formData, setFormData] = useState(initialState)
+    const username = user[0];
+    if (!user.length) {
+        return (
+            <NotAuthorized />
+        )
+    }
+
 
     const handleChange = (e) => {
         const { name, value } = e.target;

@@ -1,5 +1,4 @@
 import { Route, Routes } from 'react-router-dom';
-import React, { useState, useContext } from 'react';
 import Company from '../companies/Company.js';
 import Job from '../jobs/Job.js';
 import Profile from '../user/Profile.js';
@@ -8,6 +7,7 @@ import SignUp from '../user/SignUp.js';
 import Logout from '../user/Logout.js';
 import HomePage from '../HomePage.js';
 import CompanyDetail from '../companies/CompanyDetail.js';
+import NotFound from './NotFound.js';
 
 
 function RoutesComp() {
@@ -31,6 +31,7 @@ function RoutesComp() {
                 </Route>
                 <Route path="/signin" element={<SignIn />}>
                 </Route>
+                <Route element={<NotFound />} ></Route>
             </Routes>
         </div>
     );

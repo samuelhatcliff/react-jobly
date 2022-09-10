@@ -6,7 +6,11 @@ import useLocalStorage from './useLocalStorage.js';
 
 
 export const TOKEN_STORAGE_ID = "jobly-token";
-
+//todo:
+//change decodeToken from get to post 
+//add images for jobs
+//write separate notAuthorized hook/function
+// separate auth functions from App.js
 
 function App() {
   const [user, setUser] = useState([]);
@@ -88,7 +92,6 @@ function App() {
       <UserContext.Provider value={{ user, setUser, logout, signUp, login, updateUser }}>
         <AppComponents />
       </UserContext.Provider>
-
     </div>
   );
 }

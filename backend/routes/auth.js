@@ -36,14 +36,10 @@ router.post("/token", async function (req, res, next) {
   }
 });
 
-router.post("/decode", async function (req, res, next) {
+router.get("/decode", async function (req, res, next) {
   try {
-    console.log("BODYY!", req.body, req.params, req.query)
-    // console.log("!!!!", req.params)
-    const token = req.body['data'];
-    console.log("TOKEN=", token)
+    const token = req.query['data'];
     const username = decodeToken(token);
-    console.log("username=", username)
     return res.json(username);
   } catch (err) {
     return next(err);

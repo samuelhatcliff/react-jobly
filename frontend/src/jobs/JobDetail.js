@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import JoblyApi from '../api'
 import List from '../common/List';
-import Loading from '../common/Loading';
 
 const JobDetail = ({ search }) => {
     const [data, setData] = useState(null)
