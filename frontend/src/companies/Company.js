@@ -4,6 +4,7 @@ import UserContext from '../user/UserContext.js';
 import CompanyDetail from './CompanyDetail';
 import SearchModule from '../common/SearchModule';
 import NotAuthorized from '../routes/NotAuthorized.js';
+
 const Company = () => {
     const [search, setSearch] = useState(null);
     const { user } = useContext(UserContext)

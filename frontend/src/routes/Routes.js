@@ -6,20 +6,22 @@ import SignIn from '../user/SignIn.js';
 import SignUp from '../user/SignUp.js';
 import Logout from '../user/Logout.js';
 import HomePage from '../HomePage.js';
-import CompanyDetail from '../companies/CompanyDetail.js';
+import CompanyJobs from '../companies/CompanyJobs.js';
+
 import NotFound from './NotFound.js';
 
 
 function RoutesComp() {
-    const company = "c"
     return (
         <div>
             <Routes>
                 <Route path="/" element={<HomePage />}>
                 </Route>
                 <Route path="/companies" element={<Company />}>
-                    <Route path={company} element={<CompanyDetail />}>
-                    </Route>
+                    {/* <Route path={handle} element={<CompanyJobs handle={handle} />}>
+                    </Route> */}
+                </Route>
+                <Route path="/companies/:handle" element={<CompanyJobs />}>
                 </Route>
                 <Route path="/jobs" element={<Job />}>
                 </Route>

@@ -1,7 +1,5 @@
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import UserContext from './user/UserContext';
-
-
 
 const HomePage = () => {
     const { user } = useContext(UserContext)
@@ -12,6 +10,5 @@ const HomePage = () => {
             {user.length ? (<><h5>Welcome Back {user[0]}!</h5></>) : (<><h5>Please sign in or create an account to use the platform!</h5></>)}
         </div>
     )
-
 }
 export default HomePage
